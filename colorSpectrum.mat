@@ -1,0 +1,62 @@
+row20=similarities(20,:);
+[row20,Index]=sort(row20);
+uniq_row20=unique(row20);
+SpringColors=spring(size(uniq_row20,2));
+seg10=labelledlevelvideo(:,:,10);
+img_seg10 = cat(3,seg10,seg10,seg10);
+imshow(img_seg10);
+for i = 1:size(seg10,1)
+for j = 1:size(seg10,2)
+	if seg10(i,j)==20
+		img_seg10(i,j,1)=0;
+		img_seg10(i,j,2)=0;
+		img_seg10(i,j,3)=0;
+	else
+		img_seg10(i,j,1)=SpringColors(find(Index==seg10(i,j)),1);
+		img_seg10(i,j,2)=SpringColors(find(Index==seg10(i,j)),2);
+		img_seg10(i,j,3)=SpringColors(find(Index==seg10(i,j)),3);
+
+	end
+end
+end
+imshow(img_seg10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
